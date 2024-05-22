@@ -106,6 +106,39 @@ build SqStack.exe: C_EXECUTABLE_LINKER__SqStack_Debug CMakeFiles/SqStack.dir/cha
   TARGET_IMPLIB = libSqStack.dll.a
   TARGET_PDB = SqStack.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target SharedStack
+
+
+#############################################
+# Order-only phony target for SharedStack
+
+build cmake_object_order_depends_target_SharedStack: phony || CMakeFiles/SharedStack.dir
+
+build CMakeFiles/SharedStack.dir/chapter3/Stack/SharedStack/main.c.obj: C_COMPILER__SharedStack_unscanned_Debug E$:/CLionProjects/wangdao-datastructure/chapter3/Stack/SharedStack/main.c || cmake_object_order_depends_target_SharedStack
+  DEP_FILE = CMakeFiles\SharedStack.dir\chapter3\Stack\SharedStack\main.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\SharedStack.dir
+  OBJECT_FILE_DIR = CMakeFiles\SharedStack.dir\chapter3\Stack\SharedStack
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target SharedStack
+
+
+#############################################
+# Link the executable SharedStack.exe
+
+build SharedStack.exe: C_EXECUTABLE_LINKER__SharedStack_Debug CMakeFiles/SharedStack.dir/chapter3/Stack/SharedStack/main.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\SharedStack.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = SharedStack.exe
+  TARGET_IMPLIB = libSharedStack.dll.a
+  TARGET_PDB = SharedStack.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -132,6 +165,8 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
+build SharedStack: phony SharedStack.exe
+
 build SqStack: phony SqStack.exe
 
 build wangdao_datastructure: phony wangdao_datastructure.exe
@@ -144,7 +179,7 @@ build wangdao_datastructure: phony wangdao_datastructure.exe
 #############################################
 # Folder: E:/CLionProjects/wangdao-datastructure/cmake-build-debug
 
-build all: phony wangdao_datastructure.exe SqStack.exe
+build all: phony wangdao_datastructure.exe SqStack.exe SharedStack.exe
 
 # =============================================================================
 # Built-in targets
