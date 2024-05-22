@@ -37,5 +37,6 @@ int GetTop(SqStack *sqStack, ElemType *elemType) {
 }
 
 int StackEmpty(SqStack sqStack) {
-    return sqStack.top == -1 ? 0 : 1;
+    if (sqStack.top == -1)return 1;
+    return 0;
 }

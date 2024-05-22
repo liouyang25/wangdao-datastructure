@@ -5,3 +5,4 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(wangdao_datastructure main.c)
 add_executable(SqStack chapter3/Stack/SqStack/main.c)
+add_executable(SharedStack chapter3/Stack/SharedStack/main.c)
