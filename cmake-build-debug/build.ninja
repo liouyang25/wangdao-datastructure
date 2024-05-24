@@ -139,6 +139,72 @@ build SharedStack.exe: C_EXECUTABLE_LINKER__SharedStack_Debug CMakeFiles/SharedS
   TARGET_IMPLIB = libSharedStack.dll.a
   TARGET_PDB = SharedStack.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target noHead
+
+
+#############################################
+# Order-only phony target for noHead
+
+build cmake_object_order_depends_target_noHead: phony || CMakeFiles/noHead.dir
+
+build CMakeFiles/noHead.dir/chapter3/Stack/LiStack/noHead/main.c.obj: C_COMPILER__noHead_unscanned_Debug E$:/CLionProjects/wangdao-datastructure/chapter3/Stack/LiStack/noHead/main.c || cmake_object_order_depends_target_noHead
+  DEP_FILE = CMakeFiles\noHead.dir\chapter3\Stack\LiStack\noHead\main.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\noHead.dir
+  OBJECT_FILE_DIR = CMakeFiles\noHead.dir\chapter3\Stack\LiStack\noHead
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target noHead
+
+
+#############################################
+# Link the executable noHead.exe
+
+build noHead.exe: C_EXECUTABLE_LINKER__noHead_Debug CMakeFiles/noHead.dir/chapter3/Stack/LiStack/noHead/main.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\noHead.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = noHead.exe
+  TARGET_IMPLIB = libnoHead.dll.a
+  TARGET_PDB = noHead.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target withHead
+
+
+#############################################
+# Order-only phony target for withHead
+
+build cmake_object_order_depends_target_withHead: phony || CMakeFiles/withHead.dir
+
+build CMakeFiles/withHead.dir/chapter3/Stack/LiStack/withHead/main.c.obj: C_COMPILER__withHead_unscanned_Debug E$:/CLionProjects/wangdao-datastructure/chapter3/Stack/LiStack/withHead/main.c || cmake_object_order_depends_target_withHead
+  DEP_FILE = CMakeFiles\withHead.dir\chapter3\Stack\LiStack\withHead\main.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\withHead.dir
+  OBJECT_FILE_DIR = CMakeFiles\withHead.dir\chapter3\Stack\LiStack\withHead
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target withHead
+
+
+#############################################
+# Link the executable withHead.exe
+
+build withHead.exe: C_EXECUTABLE_LINKER__withHead_Debug CMakeFiles/withHead.dir/chapter3/Stack/LiStack/withHead/main.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\withHead.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = withHead.exe
+  TARGET_IMPLIB = libwithHead.dll.a
+  TARGET_PDB = withHead.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -169,7 +235,11 @@ build SharedStack: phony SharedStack.exe
 
 build SqStack: phony SqStack.exe
 
+build noHead: phony noHead.exe
+
 build wangdao_datastructure: phony wangdao_datastructure.exe
+
+build withHead: phony withHead.exe
 
 # =============================================================================
 # Folder targets.
@@ -179,7 +249,7 @@ build wangdao_datastructure: phony wangdao_datastructure.exe
 #############################################
 # Folder: E:/CLionProjects/wangdao-datastructure/cmake-build-debug
 
-build all: phony wangdao_datastructure.exe SqStack.exe SharedStack.exe
+build all: phony wangdao_datastructure.exe SqStack.exe SharedStack.exe noHead.exe withHead.exe
 
 # =============================================================================
 # Built-in targets
