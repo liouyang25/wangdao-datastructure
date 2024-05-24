@@ -1,11 +1,9 @@
 # ninja log v5
-1	224	7380585126249619	build.ninja	b6d022e5622ec655
+1	224	7382371771111183	build.ninja	b6d022e5622ec655
 2	101	7380553736752219	CMakeFiles/SqStack.dir/chapter3/Stack/SqStack/main.c.obj	ff824179f0b7fda1
 1	132	7380509971470503	CMakeFiles/wangdao_datastructure.dir/main.c.obj	4ba158c9e9574a89
 133	395	7380509974060769	wangdao_datastructure.exe	7d27d6f536cfeeef
-105	223	7380581402033691	SharedStack.exe	662aac4478f4b8ea
+93	191	7380585218816655	SharedStack.exe	662aac4478f4b8ea
 102	207	7380553737751252	SqStack.exe	9acbbfc4965b8da9
 8	73	7380516718227059	CMakeFiles/SqStack.dir/chapter3/Stack/SqStack/SqStack.c.obj	590fe63a8af264d4
-4	104	7380581400903975	CMakeFiles/SharedStack.dir/chapter3/Stack/SharedStack/main.c.obj	148c74f1699ee34d
 3	91	7380585217862932	CMakeFiles/SharedStack.dir/chapter3/Stack/SharedStack/main.c.obj	148c74f1699ee34d
-93	191	7380585218816655	SharedStack.exe	662aac4478f4b8ea
