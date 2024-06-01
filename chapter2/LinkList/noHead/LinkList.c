@@ -41,6 +41,12 @@ void PrintList(LinkList linkList);
 //长度
 int Length(LinkList linkList);
 
+//头插法建立单链表
+LinkList *List_HeadInsert(LinkList *linkList, const ElemType *arr, int length);
+
+//尾插法建立单链表
+LinkList *List_TailInsert(LinkList *linkList, const ElemType *arr, int length);
+
 int InitList(LinkList *linkList) {
     *linkList = NULL;
     return 1;
@@ -108,7 +114,7 @@ int ListDelete(LinkList *linkList, ElemType *elemType, int index) {
     if (index < 1)return 0;
     LinkNode *node = *linkList, *temp;
     if (index == 1) {
-        if (node == NULL || node->next == NULL)return 0;
+        if (node == NULL)return 0;
         temp = node->next;
         *elemType = node->data;
         *linkList = temp;
@@ -173,6 +179,11 @@ void PrintList(LinkList linkList) {
     printf("\n");
 }
 
+void PrintListWithInfo(LinkList linkList) {
+    printf("链表: ");
+    PrintList(linkList);
+}
+
 int Length(LinkList linkList) {
     int count = 0;
     LinkNode *node = linkList;
@@ -181,4 +192,40 @@ int Length(LinkList linkList) {
         count++;
     }
     return count;
+}
+
+LinkList *List_HeadInsert(LinkList *linkList, const ElemType *arr, int length) {
+    LinkNode *node;
+    if (*linkList == NULL) {
+        node = (LinkNode *) malloc(sizeof(LinkNode));
+        node->data = arr[0];
+        node->next = NULL;
+        *linkList = node;
+    }
+    for (int i = 1; i < length; ++i) {
+        node = (LinkNode *) malloc(sizeof(LinkNode));
+        node->data = arr[i];
+        node->next = *linkList;
+        *linkList = node;
+    }
+    return linkList;
+}
+
+LinkList *List_TailInsert(LinkList *linkList, const ElemType *arr, int length) {
+    LinkNode *node, *rear = *linkList;
+    if (*linkList == NULL) {
+        node = (LinkNode *) malloc(sizeof(LinkNode));
+        node->data = arr[0];
+        node->next = NULL;
+        *linkList = node;
+        rear = node;
+    }
+    for (int i = 1; i < length; ++i) {
+        node = (LinkNode *) malloc(sizeof(LinkNode));
+        node->data = arr[i];
+        node->next = rear->next;
+        rear->next = node;
+        rear = node;
+    }
+    return linkList;
 }

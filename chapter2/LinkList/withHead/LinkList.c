@@ -41,6 +41,11 @@ void PrintList(LinkList linkList);
 //长度
 int Length(LinkList linkList);
 
+//头插法建立单链表
+LinkList *List_HeadInsert(LinkList *linkList, const ElemType *arr, int length);
+
+//尾插法建立单链表
+LinkList *List_TailInsert(LinkList *linkList, const ElemType *arr, int length);
 
 int InitList(LinkList *linkList) {
     *linkList = (LinkNode *) malloc(sizeof(LinkNode));
@@ -160,6 +165,11 @@ void PrintList(LinkList linkList) {
     printf("\n");
 }
 
+void PrintListWithInfo(LinkList linkList) {
+    printf("链表: ");
+    PrintList(linkList);
+}
+
 int Length(LinkList linkList) {
     int count = 0;
     LinkNode *node = linkList->next;
@@ -168,4 +178,27 @@ int Length(LinkList linkList) {
         count++;
     }
     return count;
+}
+
+LinkList *List_HeadInsert(LinkList *linkList, const ElemType *arr, int length) {
+    LinkNode *node;
+    for (int i = 0; i < length; ++i) {
+        node = (LinkNode *) malloc(sizeof(LinkNode));
+        node->data = arr[i];
+        node->next = (*linkList)->next;
+        (*linkList)->next = node;
+    }
+    return linkList;
+}
+
+LinkList *List_TailInsert(LinkList *linkList, const ElemType *arr, int length) {
+    LinkNode *node, *rear = *linkList;
+    for (int i = 0; i < length; ++i) {
+        node = (LinkNode *) malloc(sizeof(LinkNode));
+        node->data = arr[i];
+        rear->next = node;  //最后一个节点的next等于新创建的节点
+        rear = node;    //将指针指向最后一个节点
+    }
+    rear->next = NULL;  //最后一个节点的next赋值为NULL
+    return linkList;
 }
