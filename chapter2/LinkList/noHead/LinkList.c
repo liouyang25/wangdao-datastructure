@@ -47,6 +47,9 @@ LinkList *List_HeadInsert(LinkList *linkList, const ElemType *arr, int length);
 //尾插法建立单链表
 LinkList *List_TailInsert(LinkList *linkList, const ElemType *arr, int length);
 
+//销毁单链表
+void DestroyList(LinkList *linkList);
+
 int InitList(LinkList *linkList) {
     *linkList = NULL;
     return 1;
@@ -228,4 +231,14 @@ LinkList *List_TailInsert(LinkList *linkList, const ElemType *arr, int length) {
         rear = node;
     }
     return linkList;
+}
+
+void DestroyList(LinkList *linkList) {
+    LinkNode *temp;
+    while (*linkList != NULL) {
+        temp = (*linkList)->next;
+        free(*linkList);
+        *linkList = temp;
+    }
+    *linkList = NULL;
 }
