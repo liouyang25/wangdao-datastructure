@@ -1,5 +1,6 @@
 //
 // Created by li on 2024/6/2.
+// 带头节点
 //
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,7 +16,7 @@ typedef struct DNode {
 } DLinkNode, *DLinkList;
 
 //初始化链表
-int InitList(DLinkList *linkList);
+bool InitList(DLinkList *linkList);
 
 //头插法建立双链表
 bool List_HeadInsert(DLinkList *linkList, const ElemType *arr, int length);
@@ -53,8 +54,14 @@ int Length(DLinkList linkList);
 //销毁双链表
 void DestroyList(DLinkList *linkList);
 
-int InitList(DLinkList *linkList) {
+/**
+ * 初始化链表
+ * @param linkList 头节点
+ * @return true 成功 false 失败
+ */
+bool InitList(DLinkList *linkList) {
     *linkList = (DLinkNode *) malloc(sizeof(DLinkNode));
+    if (*linkList == NULL)return false;
     (*linkList)->data = 0;
     (*linkList)->prior = (*linkList)->next = NULL;
     return true;
@@ -126,7 +133,7 @@ DLinkNode *LocateElem(DLinkList linkList, ElemType elemType) {
  * @return 找到的节点，失败返回NULL
  */
 DLinkNode *GetElem(DLinkList linkList, int index) {
-    if (index < 0)return NULL;
+    if (index < 0 || linkList == NULL)return NULL;
     int i = 0;
     DLinkNode *node = linkList;
     while (node != NULL && i < index) {
