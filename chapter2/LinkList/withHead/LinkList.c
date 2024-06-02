@@ -42,10 +42,10 @@ void PrintList(LinkList linkList);
 int Length(LinkList linkList);
 
 //头插法建立单链表
-LinkList *List_HeadInsert(LinkList *linkList, const ElemType *arr, int length);
+int List_HeadInsert(LinkList *linkList, const ElemType *arr, int length);
 
 //尾插法建立单链表
-LinkList *List_TailInsert(LinkList *linkList, const ElemType *arr, int length);
+int List_TailInsert(LinkList *linkList, const ElemType *arr, int length);
 
 //销毁单链表
 void DestroyList(LinkList *linkList);
@@ -183,7 +183,7 @@ int Length(LinkList linkList) {
     return count;
 }
 
-LinkList *List_HeadInsert(LinkList *linkList, const ElemType *arr, int length) {
+int List_HeadInsert(LinkList *linkList, const ElemType *arr, int length) {
     LinkNode *node;
     for (int i = 0; i < length; ++i) {
         node = (LinkNode *) malloc(sizeof(LinkNode));
@@ -191,10 +191,11 @@ LinkList *List_HeadInsert(LinkList *linkList, const ElemType *arr, int length) {
         node->next = (*linkList)->next;
         (*linkList)->next = node;
     }
-    return linkList;
+    return 1;
 }
 
-LinkList *List_TailInsert(LinkList *linkList, const ElemType *arr, int length) {
+int List_TailInsert(LinkList *linkList, const ElemType *arr, int length) {
+    if (*linkList == NULL)return 0;
     LinkNode *node, *rear = *linkList;
     for (int i = 0; i < length; ++i) {
         node = (LinkNode *) malloc(sizeof(LinkNode));
@@ -203,7 +204,7 @@ LinkList *List_TailInsert(LinkList *linkList, const ElemType *arr, int length) {
         rear = node;    //将指针指向最后一个节点
     }
     rear->next = NULL;  //最后一个节点的next赋值为NULL
-    return linkList;
+    return 1;
 }
 
 void DestroyList(LinkList *linkList) {
