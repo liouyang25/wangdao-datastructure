@@ -15,6 +15,7 @@ int main() {
 //    List_HeadInsert(&dLinkList, Arr, length);    //头插法建立链表
     List_TailInsert(&dLinkList, Arr, length);    //尾插法建立链表
     PrintListWithInfo(dLinkList, 1);
+    PrintListWithInfo(dLinkList, 0);
 
     ListDelete(&dLinkList, &elemType, 1);
     PrintListWithInfo(dLinkList, 1);
@@ -59,6 +60,7 @@ int main() {
     }
     DeleteNode(&dLinkNode);
     PrintListWithInfo(dLinkList, 1);
+    PrintListWithInfo(dLinkList, 0);
 
     printf("长度: %d\n", Length(dLinkList));
     DestroyList(&dLinkList);
