@@ -295,9 +295,8 @@ void PrintList(DLinkList dLinkList, int type) {
             node = node->next;
         }
     }
-    int i = 0;
     if (type == 0) {
-        while (rear != NULL && i++ < 20) {
+        while (rear != NULL) {
             printf("%d  ", rear->data);
             rear = rear->prior;
         }
