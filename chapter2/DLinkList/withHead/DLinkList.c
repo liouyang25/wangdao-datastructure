@@ -256,8 +256,10 @@ void PrintListWithInfo(DLinkList linkList, int type) {
     PrintList(linkList, type);
 }
 
-/*
+/**
  * 链表长度
+ * @param linkList 链表
+ * @return 长度
  */
 int Length(DLinkList linkList) {
     if (linkList == NULL)return 0;
@@ -270,8 +272,9 @@ int Length(DLinkList linkList) {
     return count;
 }
 
-/*
+/**
  * 销毁双链表
+ * @param linkList 双链表
  */
 void DestroyList(DLinkList *linkList) {
     DLinkNode *temp;
