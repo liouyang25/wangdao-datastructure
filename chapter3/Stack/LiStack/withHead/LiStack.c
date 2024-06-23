@@ -15,7 +15,7 @@ typedef struct LinkNode {
 
 // 初始化
 int InitStack(LiStack *liStack) {
-    *liStack = (LiStack *) malloc(sizeof(LinkNode));
+    *liStack = (LinkNode *) malloc(sizeof(LinkNode));
     (*liStack)->data = 0;
     (*liStack)->next = NULL;
     return 1;
@@ -61,7 +61,10 @@ int Pop(LiStack *liStack, ElemType *elemType) {
 }
 
 int GetTop(LiStack *liStack, ElemType *elemType) {
-    if (*liStack == NULL)return 0;
+    if ((*liStack)->next == NULL) {
+        *elemType = -999;
+        return 0;
+    }
     *elemType = (*liStack)->next->data;
     return 1;
 }

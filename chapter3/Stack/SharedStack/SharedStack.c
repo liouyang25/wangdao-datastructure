@@ -1,6 +1,8 @@
 //
 // Created by li on 2024/5/22.
 //
+#include <stdio.h>
+
 #define MaxSize 20
 typedef int ElemType;
 typedef struct {
@@ -60,11 +62,17 @@ int Pop(SharedStack *sharedStack, ElemType *elemType, int type) {
 int GetTop(SharedStack *sharedStack, ElemType *elemType, int type) {
     switch (type) {
         case 0:
-            if (sharedStack->top0 == -1)return 0;
+            if (sharedStack->top0 == -1) {
+                *elemType = -999;
+                return 0;
+            }
             *elemType = sharedStack->data[sharedStack->top0];
             break;
         case 1:
-            if (sharedStack->top1 == MaxSize)return 0;
+            if (sharedStack->top1 == MaxSize) {
+                *elemType = -999;
+                return 0;
+            }
             *elemType = sharedStack->data[sharedStack->top1];
             break;
         default:
@@ -75,6 +83,6 @@ int GetTop(SharedStack *sharedStack, ElemType *elemType, int type) {
 
 //判断栈是否为空
 int StackEmpty(SharedStack sharedStack) {
-    if (sharedStack.top0 == 0 && sharedStack.top1 == MaxSize)return 1;
+    if (sharedStack.top0 == -1 && sharedStack.top1 == MaxSize)return 1;
     return 0;
 }

@@ -1,6 +1,8 @@
 //
 // Created by li on 2024/5/22.
 //
+#include <stdio.h>
+
 #define MaxSize 20
 typedef int ElemType;
 typedef struct {
@@ -31,7 +33,10 @@ int Pop(SqStack *sqStack, ElemType *elemType) {
 }
 
 int GetTop(SqStack *sqStack, ElemType *elemType) {
-    if (sqStack->top == -1)return 0;
+    if (sqStack->top == -1) {
+        *elemType = -999;
+        return 0;
+    }
     *elemType = sqStack->data[sqStack->top];
     return 1;
 }

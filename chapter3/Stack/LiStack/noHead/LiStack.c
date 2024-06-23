@@ -45,7 +45,10 @@ int Pop(LiStack *liStack, ElemType *elemType) {
 }
 
 int GetTop(LiStack *liStack, ElemType *elemType) {
-    if (*liStack == NULL)return 0;
+    if (*liStack == NULL) {
+        *elemType = -999;
+        return 0;
+    }
     *elemType = (*liStack)->data;
     return 1;
 }
