@@ -4,6 +4,7 @@
 // 牺牲一个单元区分队空和队满
 //
 #include <stdio.h>
+#include <stdbool.h>
 
 #define MaxSize 6
 typedef int ElemType;
@@ -20,7 +21,10 @@ int InitQueue(SqQueue *sqQueue) {
 
 //入队
 int EnQueue(SqQueue *sqQueue, ElemType elemType) {
-    if ((*sqQueue).front == ((*sqQueue).rear + 1) % MaxSize)return 0;
+    if ((*sqQueue).front == ((*sqQueue).rear + 1) % MaxSize) {
+        printf("队满\n");
+        return 0;
+    }
     (*sqQueue).data[(*sqQueue).rear] = elemType;
     (*sqQueue).rear = ((*sqQueue).rear + 1) % MaxSize;
     return 1;
@@ -28,10 +32,28 @@ int EnQueue(SqQueue *sqQueue, ElemType elemType) {
 
 //出队
 int DeQueue(SqQueue *sqQueue, ElemType *elemType) {
-    if ((*sqQueue).front == (*sqQueue).rear)return 0;
+    if ((*sqQueue).front == (*sqQueue).rear) {
+        printf("队空\n");
+        return 0;
+    }
     *elemType = (*sqQueue).data[(*sqQueue).front];
     (*sqQueue).front = ((*sqQueue).front + 1) % MaxSize;
     return 1;
+}
+
+/**
+ * 读取队头元素
+ * @param sqQueue 队列
+ * @param elemType 返回的队头元素
+ * @return true 成功 false 失败
+ */
+bool GetHead(SqQueue sqQueue, ElemType *elemType) {
+    if (sqQueue.front == sqQueue.rear) {
+        printf("队空\n");
+        return false;
+    }
+    *elemType = sqQueue.data[sqQueue.front];
+    return true;
 }
 
 //队列是否为空
@@ -49,9 +71,16 @@ int GetItemNum(SqQueue sqQueue) {
 }
 
 //打印队列
-void PrintQueue(SqQueue sqQueue, int length) {
-    for (int i = 0; i < length; ++i) {
-        printf("%d ", sqQueue.data[i]);
+void PrintQueue(SqQueue sqQueue) {
+    if (sqQueue.front == sqQueue.rear) {
+        printf("队空\n");
+        return;
+    }
+    int tempFront = sqQueue.front;
+    while (sqQueue.front != sqQueue.rear) {
+        printf("%d ", sqQueue.data[sqQueue.front]);
+        sqQueue.front = (sqQueue.front + 1) % MaxSize;
     }
     printf("\n");
+    sqQueue.front = tempFront;
 }
