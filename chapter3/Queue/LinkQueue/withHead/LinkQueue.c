@@ -105,7 +105,7 @@ int GetItemNum(LinkQueue linkQueue) {
  */
 bool DestroyQueue(LinkQueue *linkQueue) {
     if (!*linkQueue)return false;
-    LinkNode *node = (*linkQueue)->front->next, *temp;
+    LinkNode *node = (*linkQueue)->front, *temp;
     while (node != NULL) {
         temp = node->next;
         free(node);
