@@ -1,10 +1,10 @@
 //
 // Created by li on 2024/7/17.
 //
-#include "HString.c"
+#include "SString.c"
 
 int main() {
-    HString T, S1, S2, Sub;
+    SString T, S1, S2, Sub;
 
     // 测试 StrAssign
     StrAssign(&T, "liouyang25");
