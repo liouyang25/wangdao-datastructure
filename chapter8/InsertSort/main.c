@@ -17,6 +17,27 @@ void InsertSort(int A[], int n) {
     }
 }
 
+void InsertSort2(int A[], int n) {
+    int i, j, low, high, mid, temp;
+    for (i = 1; i < n; i++) {
+        temp = A[i];
+        low = 0;
+        high = i - 1;
+        while (low <= high) {
+            mid = (low + high) / 2;
+            if (A[mid] > temp) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        for (j = i - 1; j >= high + 1; j--) {
+            A[j + 1] = A[j];
+        }
+        A[high + 1] = temp;
+    }
+}
+
 void PrintArray(int A[], int n) {
     for (int i = 0; i < n; i++) {
         printf("%d ", A[i]);
